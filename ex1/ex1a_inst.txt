@@ -1,0 +1,37 @@
+Calculate powers of golden mean backwards
+
+Define a function:  golden_powers_down(n,type)
+that returns a numpy array of size n,3 and dtype=type (either "float32" or "float64").
+The first column is the power calculated by the linear relation, the second is the power calculated directly,
+and the third is the relative difference of the two. The first line is for power=0 and the last is for n-1.
+Run the function for n=31 and type='float32".
+
+Plot the log. of absolute value of errors.
+Apply the following lines in jupyter or use python directly.
+-------------------------------------------------------------------
+goldown = golden_powers_down(31,'float32')
+%matplotlib notebook
+from matplotlib import pyplot as plt
+import numpy as np
+plt.plot(range(2,25),np.log10(abs(goldown[2:25,2])))
+plt.title('stab_down',fontsize=16)
+plt.xlabel('n',fontsize=14)
+plt.ylabel('log-abs-error',fontsize=14)
+plt.show()
+-------------------------------------------------------------------
+
+Use the following lines to plot the errors:
+
+-------------------------------------------------------------------
+%matplotlib notebook
+from matplotlib import pyplot as plt
+import numpy as np
+plt.plot(range(2,19),goldown[2:19,2])
+plt.title('stab_down',fontsize=16)
+plt.xlabel('n',fontsize=14)
+plt.ylabel('error',fontsize=14)
+plt.show()
+-------------------------------------------------------------------
+
+Submit code, outputs, plots and explanations as jupyter notebook file (*.ipynb);
+or code as python file (*.py) and outputs, plots and explanations in pdf file.
